@@ -1,4 +1,4 @@
-module pc #(
+module pcreg #(
     parameter WIDTH = 32
 )(
     // interface signals
