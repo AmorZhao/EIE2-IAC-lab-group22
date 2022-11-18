@@ -18,6 +18,6 @@ initial begin
     $readmemh("InstructionROM.mem", rom_array); 
 end; 
 
-RD <=rom_array [A]; 
+assign RD = rom_array [A]; 
 
 endmodule
