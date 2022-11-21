@@ -1,8 +1,8 @@
 module alu (
-    input logic [1:0]       ALUctrl,
-    input logic [31:0]      ALUop1, ALUop2,
-    output logic [31:0]     ALUout,
-    output logic [1:0]      EQ
+    input logic                 ALUctrl,
+    input logic     [31:0]      ALUop1, ALUop2,
+    output logic    [31:0]      ALUout,
+    output logic                EQ
 
 );
 
