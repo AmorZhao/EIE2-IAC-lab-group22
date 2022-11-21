@@ -5,7 +5,7 @@ module pc #(
     input   logic             clk,    // clock
     input   logic             rst,    // reset
     input   logic             en,     // pc enable
-    input   logic [WIDTH-1:0] immop   // jump instruction pc
+    input   logic [WIDTH-1:0] immop,  // jump instruction pc
     input   logic             pcsrc,  // pc source
     output  logic [WIDTH-1:0] pc      // pc output
 );

@@ -9,23 +9,16 @@ module red_block #(
     input logic                     ALUsrc,         //control unit    ALUsrc
     input logic                     ALUctrl,        //control unit    ALUctrl
     input logic     [D_WIDTH-1:0]   ImmOp,          //PCreg           Immop
-    input logic     [4:0]           RegWrite,       //control unit    RegWrite
+    input logic                     RegWrite,       //control unit    RegWrite
     output logic                    EQ,             //control unit    EQ
     output logic    [D_WIDTH-1:0]   a0              //MAIN OUTPUT
 )
 
 //connectiong wires
-input logic     [D_WIDTH-1:0]   ALUop1,        //RD1 to ALUop1
-input logic     [D_WIDTH-1:0]   regOp2,        //RD2 to mux2
-input logic     [D_WIDTH-1:0]   ALUop2,        //mux2 to ALUop2
-input logic     [D_WIDTH-1:0]   ALUout,        //ALUsum to WD3
-
-
-
-
-input  logic [4:0] WD3;
-input logic [4:0] SUM;
-
+logic     [D_WIDTH-1:0]   ALUop1,        //RD1 to ALUop1
+logic     [D_WIDTH-1:0]   regOp2,        //RD2 to mux2
+logic     [D_WIDTH-1:0]   ALUop2,        //mux2 to ALUop2
+logic     [D_WIDTH-1:0]   ALUout,        //ALUsum to WD3
 
 alu ALU(
     .ALUctrl    (ALUctrl),
