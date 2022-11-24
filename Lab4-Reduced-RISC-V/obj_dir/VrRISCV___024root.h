@@ -25,6 +25,7 @@ class VrRISCV___024root final : public VerilatedModule {
     CData/*0:0*/ rRISCV__DOT__Control__DOT__bne;
     CData/*0:0*/ __Vclklast__TOP__clk;
     CData/*0:0*/ __Vclklast__TOP__rst;
+    SData/*11:0*/ rRISCV__DOT__SignExtend__DOT__Imm;
     VL_OUT(a0,31,0);
     IData/*31:0*/ rRISCV__DOT__PC;
     IData/*31:0*/ rRISCV__DOT__instr;

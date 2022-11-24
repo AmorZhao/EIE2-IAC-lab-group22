@@ -82,11 +82,6 @@ VL_INLINE_OPT void VrRISCV___024root___sequent__TOP__1(VrRISCV___024root* vlSelf
                                            [(0x3ffU 
                                              & vlSelf->rRISCV__DOT__PC)]
                                             : 0U))));
-    vlSelf->rRISCV__DOT__ImmOp = (((- (IData)((1U & 
-                                               (vlSelf->rRISCV__DOT__instr 
-                                                >> 0xbU)))) 
-                                   << 0xcU) | (0xfffU 
-                                               & vlSelf->rRISCV__DOT__instr));
     if ((0x13U == (0x7fU & vlSelf->rRISCV__DOT__instr))) {
         vlSelf->rRISCV__DOT__Control__DOT__addi = 1U;
         vlSelf->rRISCV__DOT__Control__DOT__bne = 0U;
@@ -106,17 +101,39 @@ VL_INLINE_OPT void VrRISCV___024root___combo__TOP__0(VrRISCV___024root* vlSelf) 
     if (vlSelf->rRISCV__DOT__Control__DOT__addi) {
         vlSelf->rRISCV__DOT__RegWrite = 1U;
         vlSelf->rRISCV__DOT__ALUctrl = 1U;
-        vlSelf->rRISCV__DOT__ImmSrc = 0U;
         vlSelf->rRISCV__DOT__PCsrc = 0U;
         vlSelf->rRISCV__DOT__ALUsrc = 1U;
+        vlSelf->rRISCV__DOT__ImmSrc = 0U;
     } else if (((IData)(vlSelf->rRISCV__DOT__Control__DOT__bne) 
-                & (IData)(vlSelf->rRISCV__DOT__EQ))) {
+                & (~ (IData)(vlSelf->rRISCV__DOT__EQ)))) {
         vlSelf->rRISCV__DOT__RegWrite = 0U;
         vlSelf->rRISCV__DOT__ALUctrl = 0U;
-        vlSelf->rRISCV__DOT__ImmSrc = 1U;
         vlSelf->rRISCV__DOT__PCsrc = 1U;
         vlSelf->rRISCV__DOT__ALUsrc = 0U;
+        vlSelf->rRISCV__DOT__ImmSrc = 1U;
     }
+    vlSelf->rRISCV__DOT__SignExtend__DOT__Imm = (0xfffU 
+                                                 & ((IData)(vlSelf->rRISCV__DOT__ImmSrc)
+                                                     ? 
+                                                    ((0x800U 
+                                                      & (vlSelf->rRISCV__DOT__instr 
+                                                         >> 0x14U)) 
+                                                     | ((0x400U 
+                                                         & (vlSelf->rRISCV__DOT__instr 
+                                                            << 3U)) 
+                                                        | ((0x3f0U 
+                                                            & (vlSelf->rRISCV__DOT__instr 
+                                                               >> 0x15U)) 
+                                                           | (0xfU 
+                                                              & (vlSelf->rRISCV__DOT__instr 
+                                                                 >> 8U)))))
+                                                     : 
+                                                    (vlSelf->rRISCV__DOT__instr 
+                                                     >> 0x14U)));
+    vlSelf->rRISCV__DOT__ImmOp = (((- (IData)((1U & 
+                                               ((IData)(vlSelf->rRISCV__DOT__SignExtend__DOT__Imm) 
+                                                >> 0xbU)))) 
+                                   << 0xcU) | (IData)(vlSelf->rRISCV__DOT__SignExtend__DOT__Imm));
     vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2 = ((IData)(vlSelf->rRISCV__DOT__ALUsrc)
                                                    ? vlSelf->rRISCV__DOT__ImmOp
                                                    : vlSelf->rRISCV__DOT__RedBlock__DOT__regop2);

@@ -23,6 +23,6 @@ module SignExtend #(
     
 
     // sign extend
-    assign ImmOp = { {20{instr[IMM_WIDTH-1]}}, instr[IMM_WIDTH-1:0]}; 
+    assign ImmOp = { {20{Imm[IMM_WIDTH-1]}}, Imm[IMM_WIDTH-1:0]}; 
 
 endmodule

@@ -62,11 +62,6 @@ VL_ATTR_COLD void VrRISCV___024root___settle__TOP__0(VrRISCV___024root* vlSelf) 
                                            [(0x3ffU 
                                              & vlSelf->rRISCV__DOT__PC)]
                                             : 0U))));
-    vlSelf->rRISCV__DOT__ImmOp = (((- (IData)((1U & 
-                                               (vlSelf->rRISCV__DOT__instr 
-                                                >> 0xbU)))) 
-                                   << 0xcU) | (0xfffU 
-                                               & vlSelf->rRISCV__DOT__instr));
     if ((0x13U == (0x7fU & vlSelf->rRISCV__DOT__instr))) {
         vlSelf->rRISCV__DOT__Control__DOT__addi = 1U;
         vlSelf->rRISCV__DOT__Control__DOT__bne = 0U;
@@ -77,17 +72,39 @@ VL_ATTR_COLD void VrRISCV___024root___settle__TOP__0(VrRISCV___024root* vlSelf) 
     if (vlSelf->rRISCV__DOT__Control__DOT__addi) {
         vlSelf->rRISCV__DOT__RegWrite = 1U;
         vlSelf->rRISCV__DOT__ALUctrl = 1U;
-        vlSelf->rRISCV__DOT__ImmSrc = 0U;
         vlSelf->rRISCV__DOT__PCsrc = 0U;
         vlSelf->rRISCV__DOT__ALUsrc = 1U;
+        vlSelf->rRISCV__DOT__ImmSrc = 0U;
     } else if (((IData)(vlSelf->rRISCV__DOT__Control__DOT__bne) 
-                & (IData)(vlSelf->rRISCV__DOT__EQ))) {
+                & (~ (IData)(vlSelf->rRISCV__DOT__EQ)))) {
         vlSelf->rRISCV__DOT__RegWrite = 0U;
         vlSelf->rRISCV__DOT__ALUctrl = 0U;
-        vlSelf->rRISCV__DOT__ImmSrc = 1U;
         vlSelf->rRISCV__DOT__PCsrc = 1U;
         vlSelf->rRISCV__DOT__ALUsrc = 0U;
+        vlSelf->rRISCV__DOT__ImmSrc = 1U;
     }
+    vlSelf->rRISCV__DOT__SignExtend__DOT__Imm = (0xfffU 
+                                                 & ((IData)(vlSelf->rRISCV__DOT__ImmSrc)
+                                                     ? 
+                                                    ((0x800U 
+                                                      & (vlSelf->rRISCV__DOT__instr 
+                                                         >> 0x14U)) 
+                                                     | ((0x400U 
+                                                         & (vlSelf->rRISCV__DOT__instr 
+                                                            << 3U)) 
+                                                        | ((0x3f0U 
+                                                            & (vlSelf->rRISCV__DOT__instr 
+                                                               >> 0x15U)) 
+                                                           | (0xfU 
+                                                              & (vlSelf->rRISCV__DOT__instr 
+                                                                 >> 8U)))))
+                                                     : 
+                                                    (vlSelf->rRISCV__DOT__instr 
+                                                     >> 0x14U)));
+    vlSelf->rRISCV__DOT__ImmOp = (((- (IData)((1U & 
+                                               ((IData)(vlSelf->rRISCV__DOT__SignExtend__DOT__Imm) 
+                                                >> 0xbU)))) 
+                                   << 0xcU) | (IData)(vlSelf->rRISCV__DOT__SignExtend__DOT__Imm));
     vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2 = ((IData)(vlSelf->rRISCV__DOT__ALUsrc)
                                                    ? vlSelf->rRISCV__DOT__ImmOp
                                                    : vlSelf->rRISCV__DOT__RedBlock__DOT__regop2);
@@ -149,6 +166,7 @@ VL_ATTR_COLD void VrRISCV___024root___ctor_var_reset(VrRISCV___024root* vlSelf) 
     for (int __Vi0=0; __Vi0<2; ++__Vi0) {
         vlSelf->rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array[__Vi0] = VL_RAND_RESET_I(32);
     }
+    vlSelf->rRISCV__DOT__SignExtend__DOT__Imm = VL_RAND_RESET_I(12);
     vlSelf->__Vchglast__TOP__rRISCV__DOT__RedBlock__DOT__ALUop2 = VL_RAND_RESET_I(32);
     for (int __Vi0=0; __Vi0<4; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = VL_RAND_RESET_I(1);

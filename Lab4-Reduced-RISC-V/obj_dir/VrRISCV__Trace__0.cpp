@@ -32,17 +32,16 @@ void VrRISCV___024root__trace_chg_sub_0(VrRISCV___024root* vlSelf, VerilatedVcd:
     if (VL_UNLIKELY(vlSelf->__Vm_traceActivity[2U])) {
         bufp->chgIData(oldp+4,(vlSelf->rRISCV__DOT__PC),32);
         bufp->chgIData(oldp+5,(vlSelf->rRISCV__DOT__instr),32);
-        bufp->chgIData(oldp+6,(vlSelf->rRISCV__DOT__ImmOp),32);
-        bufp->chgCData(oldp+7,((0x7fU & vlSelf->rRISCV__DOT__instr)),7);
-        bufp->chgBit(oldp+8,(vlSelf->rRISCV__DOT__Control__DOT__addi));
-        bufp->chgBit(oldp+9,(vlSelf->rRISCV__DOT__Control__DOT__bne));
+        bufp->chgCData(oldp+6,((0x7fU & vlSelf->rRISCV__DOT__instr)),7);
+        bufp->chgBit(oldp+7,(vlSelf->rRISCV__DOT__Control__DOT__addi));
+        bufp->chgBit(oldp+8,(vlSelf->rRISCV__DOT__Control__DOT__bne));
+        bufp->chgCData(oldp+9,((0x1fU & (vlSelf->rRISCV__DOT__instr 
+                                         >> 0xfU))),5);
         bufp->chgCData(oldp+10,((0x1fU & (vlSelf->rRISCV__DOT__instr 
-                                          >> 0xfU))),5);
-        bufp->chgCData(oldp+11,((0x1fU & (vlSelf->rRISCV__DOT__instr 
                                           >> 0x14U))),5);
-        bufp->chgCData(oldp+12,((0x1fU & (vlSelf->rRISCV__DOT__instr 
+        bufp->chgCData(oldp+11,((0x1fU & (vlSelf->rRISCV__DOT__instr 
                                           >> 7U))),5);
-        bufp->chgSData(oldp+13,(((0x800U & (vlSelf->rRISCV__DOT__instr 
+        bufp->chgSData(oldp+12,(((0x800U & (vlSelf->rRISCV__DOT__instr 
                                             >> 0x14U)) 
                                  | ((0x400U & (vlSelf->rRISCV__DOT__instr 
                                                << 3U)) 
@@ -50,38 +49,25 @@ void VrRISCV___024root__trace_chg_sub_0(VrRISCV___024root* vlSelf, VerilatedVcd:
                                                   >> 0x15U)) 
                                        | (0xfU & (vlSelf->rRISCV__DOT__instr 
                                                   >> 8U)))))),12);
-        bufp->chgSData(oldp+14,((vlSelf->rRISCV__DOT__instr 
+        bufp->chgSData(oldp+13,((vlSelf->rRISCV__DOT__instr 
                                  >> 0x14U)),12);
     }
     if (VL_UNLIKELY(vlSelf->__Vm_traceActivity[3U])) {
-        bufp->chgBit(oldp+15,(vlSelf->rRISCV__DOT__PCsrc));
-        bufp->chgBit(oldp+16,(vlSelf->rRISCV__DOT__ALUctrl));
-        bufp->chgBit(oldp+17,(vlSelf->rRISCV__DOT__ALUsrc));
+        bufp->chgBit(oldp+14,(vlSelf->rRISCV__DOT__PCsrc));
+        bufp->chgBit(oldp+15,(vlSelf->rRISCV__DOT__ALUctrl));
+        bufp->chgBit(oldp+16,(vlSelf->rRISCV__DOT__ALUsrc));
+        bufp->chgIData(oldp+17,(vlSelf->rRISCV__DOT__ImmOp),32);
         bufp->chgBit(oldp+18,(vlSelf->rRISCV__DOT__RegWrite));
         bufp->chgBit(oldp+19,(vlSelf->rRISCV__DOT__EQ));
         bufp->chgBit(oldp+20,(vlSelf->rRISCV__DOT__ImmSrc));
         bufp->chgIData(oldp+21,(vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2),32);
+        bufp->chgSData(oldp+22,(vlSelf->rRISCV__DOT__SignExtend__DOT__Imm),12);
     }
-    bufp->chgBit(oldp+22,(vlSelf->clk));
-    bufp->chgBit(oldp+23,(vlSelf->rst));
-    bufp->chgIData(oldp+24,(vlSelf->a0),32);
-    bufp->chgIData(oldp+25,((vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 
+    bufp->chgBit(oldp+23,(vlSelf->clk));
+    bufp->chgBit(oldp+24,(vlSelf->rst));
+    bufp->chgIData(oldp+25,(vlSelf->a0),32);
+    bufp->chgIData(oldp+26,((vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 
                              + vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2)),32);
-    bufp->chgSData(oldp+26,((0xfffU & ((IData)(vlSelf->rRISCV__DOT__ImmSrc)
-                                        ? ((0x800U 
-                                            & (vlSelf->rRISCV__DOT__instr 
-                                               >> 0x14U)) 
-                                           | ((0x400U 
-                                               & (vlSelf->rRISCV__DOT__instr 
-                                                  << 3U)) 
-                                              | ((0x3f0U 
-                                                  & (vlSelf->rRISCV__DOT__instr 
-                                                     >> 0x15U)) 
-                                                 | (0xfU 
-                                                    & (vlSelf->rRISCV__DOT__instr 
-                                                       >> 8U)))))
-                                        : (vlSelf->rRISCV__DOT__instr 
-                                           >> 0x14U)))),12);
 }
 
 void VrRISCV___024root__trace_cleanup(void* voidSelf, VerilatedVcd* /*unused*/) {

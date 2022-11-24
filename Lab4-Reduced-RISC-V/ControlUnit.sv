@@ -37,7 +37,7 @@ module ControlUnit (
             ImmSrc = 1'b0; 
             PCsrc = 1'b0; 
         end
-        else if (bne && EQ) begin
+        else if (bne && EQ!=1'b1) begin
             RegWrite = 1'b0; 
             ALUctrl = 1'b0; 
             ALUsrc = 1'b0; 
