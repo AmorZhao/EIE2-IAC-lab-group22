@@ -6,9 +6,8 @@ module alu (
 
 );
 
-if (ALUctrl) begin
-    assign ALUout = ALUop1 + ALUop2;
-end
+always_ff 
+    if (ALUctrl)    ALUout = ALUop1 + ALUop2;
 // else if (ALUctrl == "001") begin
 //     assign ALUout = ALUop1 - ALUop2;
 // end
@@ -21,7 +20,6 @@ end
 // else if (ALUctrl == "101") begin
 //     assign ALUout = ALUop1 < ALUop2;
 // end
-else
-    assign EQ = (ALUop1 == ALUop2);
+    else    EQ = (ALUop1 == ALUop2);
 
 endmodule

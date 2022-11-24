@@ -19,33 +19,33 @@ module ControlUnit #(
     logic   bne; 
 
     // check opcode
-    if ( instr[6:0] == 7'b0010011 ) //addi
-    {
-        addi <= 1; 
-        bne <= 0; 
-    }
-    else if ( instr[6:0] == 7'b1100011 ) //bne 
-    {
-        addi <= 0; 
-        bne <= 1; 
-    }
+    always_ff begin
+        if ( instr[6:0] == 7'b0010011 ) begin //addi
+            addi = 1; 
+            bne = 0; 
+        end
+        else if ( instr[6:0] == 7'b1100011 ) begin //bne 
+            addi = 0; 
+            bne = 1; 
+        end
+    end
   
     // set output signals 
-    if (addi)
-    {
-        RegWrite <= 1'b1; 
-        ALUctrl <= 1'b1; 
-        ALUsrc <= 1'b1; 
-        ImmSrc <= 1'b0; 
-        PCsrc <= 1'b0; 
-    }
-    else if (bne)
-    {
-        RegWrite <= 1'b0; 
-        ALUctrl <= 1'b0; 
-        ALUsrc <= 1'b0; 
-        ImmSrc <= 1'b1; 
-        PCsrc <= 1'b1;
-    }
+    always_ff  begin
+        if (addi) begin
+            RegWrite <= 1'b1; 
+            ALUctrl <= 1'b1; 
+            ALUsrc <= 1'b1; 
+            ImmSrc <= 1'b0; 
+            PCsrc <= 1'b0; 
+        end
+        else if (bne & EQ) begin
+            RegWrite = 1'b0; 
+            ALUctrl = 1'b0; 
+            ALUsrc = 1'b0; 
+            ImmSrc = 1'b1; 
+            PCsrc = 1'b1;
+        end
+    end
 
 endmodule

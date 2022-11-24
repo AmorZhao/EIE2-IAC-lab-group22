@@ -18,11 +18,11 @@ always_ff @(posedge clk) begin
         ram_array[AD3] <= WD3;
 end
 
-always_ff @(posedge clk, posedge rst) begin
+always_ff @(posedge clk) begin
     RD1 <= ram_array[AD1];
     RD2 <= ram_array[AD2];
 end
     
-assign a0 = ram_array[0];
+assign a0 = ram_array[32'd10];
 
 endmodule

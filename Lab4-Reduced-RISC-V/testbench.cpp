@@ -14,11 +14,11 @@ int main(int argc, char **argv, char **env) {
     Verilated::traceEverOn(true);
     VerilatedVcdC* tfp = new VerilatedVcdC;
     top->trace (tfp, 99);
-    tfp->open ("lfsr.vcd");
+    tfp->open ("rRISCV.vcd");
 
     //init Vbuddy
     if (vbdOpen()!=1) return(-1);
-    vbdHeader("Lab 3: rRISCV");
+    vbdHeader("Lab 4: rRISCV");
 
     
         vbdSetMode(1);
@@ -38,10 +38,14 @@ int main(int argc, char **argv, char **env) {
             top->eval ();
         }
 
+        vbdHex(8, (top->data_out >> 32) & 0XF);
+        vbdHex(7, (top->data_out >> 28) & 0XF);
+        vbdHex(6, (top->data_out >> 24) & 0XF);
+        vbdHex(5, (top->data_out >> 20) & 0XF);
+        vbdHex(4, (top->data_out >> 16) & 0XF);
+        vbdHex(3, (top->data_out >> 8) & 0XF);
         vbdHex(2, (top->data_out >> 4) & 0XF);
         vbdHex(1, top->data_out & 0XF);
-        vbdBar(top->data_out & 0xFF);
-        // vbdPlot(int(top->count), 0, 255);
         vbdCycle(i+1);
         //---- end of Vbuddy output section
 

@@ -12,13 +12,13 @@ module red_block #(
     input logic                     RegWrite,       //control unit    RegWrite
     output logic                    EQ,             //control unit    EQ
     output logic    [D_WIDTH-1:0]   a0              //MAIN OUTPUT
-)
+); 
 
 //connectiong wires
-logic     [D_WIDTH-1:0]   ALUop1,        //RD1 to ALUop1
-logic     [D_WIDTH-1:0]   regOp2,        //RD2 to mux2
-logic     [D_WIDTH-1:0]   ALUop2,        //mux2 to ALUop2
-logic     [D_WIDTH-1:0]   ALUout,        //ALUsum to WD3
+logic     [D_WIDTH-1:0]   ALUop1;        //RD1 to ALUop1
+logic     [D_WIDTH-1:0]   regOp2;        //RD2 to mux2
+logic     [D_WIDTH-1:0]   ALUop2;        //mux2 to ALUop2
+logic     [D_WIDTH-1:0]   ALUout;        //ALUsum to WD3
 
 alu ALU(
     .ALUctrl    (ALUctrl),
@@ -26,14 +26,14 @@ alu ALU(
     .ALUop2     (ALUop2),
     .ALUout     (ALUout),
     .EQ         (EQ)
-)
+); 
 
 mux2 Mux2 (
-    .regOp2     (regOp2),
+    .RegOp2     (regOp2),
     .ImmOp      (ImmOp),
     .ALUsrc     (ALUsrc),
     .ALUop2     (ALUop2)
-)
+); 
 
 reg_file REG_FILE(
     .clk    (clk),
@@ -45,5 +45,6 @@ reg_file REG_FILE(
     .RD1    (ALUop1),
     .RD2    (ALUop2),
     .a0     (a0)
-)
+); 
+
 endmodule
