@@ -11,7 +11,7 @@ module InstrMem #(
     output  logic [DATA_WIDTH-1:0]    RD
 ); 
 
-logic [7:0] rom_array [2**ADDRESS_WIDTH-1:0]; 
+logic [7:0] rom_array [1000:0]; 
 
 initial begin
     $display("Loading rom."); 

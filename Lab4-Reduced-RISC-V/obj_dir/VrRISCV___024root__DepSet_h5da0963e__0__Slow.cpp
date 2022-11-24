@@ -18,9 +18,9 @@ VL_ATTR_COLD void VrRISCV___024root___initial__TOP__0(VrRISCV___024root* vlSelf)
     __Vtemp_h6d3ae739__0[1U] = 0x74696f6eU;
     __Vtemp_h6d3ae739__0[2U] = 0x74727563U;
     __Vtemp_h6d3ae739__0[3U] = 0x496e73U;
-    VL_READMEM_N(true, 8, 2, 4294967295, VL_CVT_PACK_STR_NW(4, __Vtemp_h6d3ae739__0)
+    VL_READMEM_N(true, 8, 1001, 0, VL_CVT_PACK_STR_NW(4, __Vtemp_h6d3ae739__0)
                  ,  &(vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array)
-                 , 4294967295, ~0ULL);
+                 , 0, ~0ULL);
 }
 
 VL_ATTR_COLD void VrRISCV___024root___settle__TOP__0(VrRISCV___024root* vlSelf) {
@@ -32,23 +32,36 @@ VL_ATTR_COLD void VrRISCV___024root___settle__TOP__0(VrRISCV___024root* vlSelf) 
         [1U];
     vlSelf->rRISCV__DOT__EQ = (vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 
                                == vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2);
-    vlSelf->rRISCV__DOT__instr = ((vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
-                                   [(1U & ((IData)(1U) 
-                                           + vlSelf->rRISCV__DOT__PC))] 
-                                   << 0x18U) | ((vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
-                                                 [(1U 
-                                                   & vlSelf->rRISCV__DOT__PC)] 
-                                                 << 0x10U) 
-                                                | ((vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
-                                                    [
-                                                    (1U 
-                                                     & ((IData)(1U) 
-                                                        + vlSelf->rRISCV__DOT__PC))] 
-                                                    << 8U) 
-                                                   | vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
-                                                   [
-                                                   (1U 
-                                                    & vlSelf->rRISCV__DOT__PC)])));
+    vlSelf->rRISCV__DOT__instr = ((((0x3e8U >= (0x3ffU 
+                                                & ((IData)(3U) 
+                                                   + vlSelf->rRISCV__DOT__PC)))
+                                     ? vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
+                                    [(0x3ffU & ((IData)(3U) 
+                                                + vlSelf->rRISCV__DOT__PC))]
+                                     : 0U) << 0x18U) 
+                                  | ((((0x3e8U >= (0x3ffU 
+                                                   & ((IData)(2U) 
+                                                      + vlSelf->rRISCV__DOT__PC)))
+                                        ? vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
+                                       [(0x3ffU & ((IData)(2U) 
+                                                   + vlSelf->rRISCV__DOT__PC))]
+                                        : 0U) << 0x10U) 
+                                     | ((((0x3e8U >= 
+                                           (0x3ffU 
+                                            & ((IData)(1U) 
+                                               + vlSelf->rRISCV__DOT__PC)))
+                                           ? vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
+                                          [(0x3ffU 
+                                            & ((IData)(1U) 
+                                               + vlSelf->rRISCV__DOT__PC))]
+                                           : 0U) << 8U) 
+                                        | ((0x3e8U 
+                                            >= (0x3ffU 
+                                                & vlSelf->rRISCV__DOT__PC))
+                                            ? vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
+                                           [(0x3ffU 
+                                             & vlSelf->rRISCV__DOT__PC)]
+                                            : 0U))));
     vlSelf->rRISCV__DOT__ImmOp = (((- (IData)((1U & 
                                                (vlSelf->rRISCV__DOT__instr 
                                                 >> 0xbU)))) 
@@ -86,10 +99,6 @@ VL_ATTR_COLD void VrRISCV___024root___eval_initial(VrRISCV___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    VrRISCV___024root___eval_initial\n"); );
     // Body
     VrRISCV___024root___initial__TOP__0(vlSelf);
-    vlSelf->__Vm_traceActivity[3U] = 1U;
-    vlSelf->__Vm_traceActivity[2U] = 1U;
-    vlSelf->__Vm_traceActivity[1U] = 1U;
-    vlSelf->__Vm_traceActivity[0U] = 1U;
     vlSelf->__Vclklast__TOP__clk = vlSelf->clk;
     vlSelf->__Vclklast__TOP__rst = vlSelf->rst;
 }
@@ -131,7 +140,7 @@ VL_ATTR_COLD void VrRISCV___024root___ctor_var_reset(VrRISCV___024root* vlSelf) 
     vlSelf->rRISCV__DOT__ImmSrc = VL_RAND_RESET_I(1);
     vlSelf->rRISCV__DOT__Control__DOT__addi = VL_RAND_RESET_I(1);
     vlSelf->rRISCV__DOT__Control__DOT__bne = VL_RAND_RESET_I(1);
-    for (int __Vi0=0; __Vi0<2; ++__Vi0) {
+    for (int __Vi0=0; __Vi0<1001; ++__Vi0) {
         vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array[__Vi0] = VL_RAND_RESET_I(8);
     }
     vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 = VL_RAND_RESET_I(32);

@@ -52,23 +52,36 @@ VL_INLINE_OPT void VrRISCV___024root___sequent__TOP__1(VrRISCV___024root* vlSelf
                                              : vlSelf->rRISCV__DOT__PC)
                                          : ((IData)(4U) 
                                             + vlSelf->rRISCV__DOT__PC)));
-    vlSelf->rRISCV__DOT__instr = ((vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
-                                   [(1U & ((IData)(1U) 
-                                           + vlSelf->rRISCV__DOT__PC))] 
-                                   << 0x18U) | ((vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
-                                                 [(1U 
-                                                   & vlSelf->rRISCV__DOT__PC)] 
-                                                 << 0x10U) 
-                                                | ((vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
-                                                    [
-                                                    (1U 
-                                                     & ((IData)(1U) 
-                                                        + vlSelf->rRISCV__DOT__PC))] 
-                                                    << 8U) 
-                                                   | vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
-                                                   [
-                                                   (1U 
-                                                    & vlSelf->rRISCV__DOT__PC)])));
+    vlSelf->rRISCV__DOT__instr = ((((0x3e8U >= (0x3ffU 
+                                                & ((IData)(3U) 
+                                                   + vlSelf->rRISCV__DOT__PC)))
+                                     ? vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
+                                    [(0x3ffU & ((IData)(3U) 
+                                                + vlSelf->rRISCV__DOT__PC))]
+                                     : 0U) << 0x18U) 
+                                  | ((((0x3e8U >= (0x3ffU 
+                                                   & ((IData)(2U) 
+                                                      + vlSelf->rRISCV__DOT__PC)))
+                                        ? vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
+                                       [(0x3ffU & ((IData)(2U) 
+                                                   + vlSelf->rRISCV__DOT__PC))]
+                                        : 0U) << 0x10U) 
+                                     | ((((0x3e8U >= 
+                                           (0x3ffU 
+                                            & ((IData)(1U) 
+                                               + vlSelf->rRISCV__DOT__PC)))
+                                           ? vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
+                                          [(0x3ffU 
+                                            & ((IData)(1U) 
+                                               + vlSelf->rRISCV__DOT__PC))]
+                                           : 0U) << 8U) 
+                                        | ((0x3e8U 
+                                            >= (0x3ffU 
+                                                & vlSelf->rRISCV__DOT__PC))
+                                            ? vlSelf->rRISCV__DOT__InstrMem__DOT__rom_array
+                                           [(0x3ffU 
+                                             & vlSelf->rRISCV__DOT__PC)]
+                                            : 0U))));
     vlSelf->rRISCV__DOT__ImmOp = (((- (IData)((1U & 
                                                (vlSelf->rRISCV__DOT__instr 
                                                 >> 0xbU)))) 
