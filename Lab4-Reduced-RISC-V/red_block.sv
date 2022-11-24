@@ -1,6 +1,5 @@
 module red_block #(  
-    parameter   A_WIDTH = 32,
-                D_WIDTH = 32
+    parameter   D_WIDTH = 32
 )(
     input logic                     clk,            //MAIN INPUT CLK
     input logic     [4:0]           rs1,            //instr mem       rs1
@@ -16,9 +15,16 @@ module red_block #(
 
 //connectiong wires
 logic     [D_WIDTH-1:0]   ALUop1;        //RD1 to ALUop1
-logic     [D_WIDTH-1:0]   regOp2;        //RD2 to mux2
+logic     [D_WIDTH-1:0]   regop2;        //RD2 to mux2
 logic     [D_WIDTH-1:0]   ALUop2;        //mux2 to ALUop2
 logic     [D_WIDTH-1:0]   ALUout;        //ALUsum to WD3
+
+mux2 Mux2 (
+    .RegOp2     (regop2),
+    .ImmOp      (ImmOp),
+    .ALUsrc     (ALUsrc),
+    .ALUop2     (ALUop2)
+); 
 
 alu ALU(
     .ALUctrl    (ALUctrl),
@@ -26,13 +32,6 @@ alu ALU(
     .ALUop2     (ALUop2),
     .ALUout     (ALUout),
     .EQ         (EQ)
-); 
-
-mux2 Mux2 (
-    .RegOp2     (regOp2),
-    .ImmOp      (ImmOp),
-    .ALUsrc     (ALUsrc),
-    .ALUop2     (ALUop2)
 ); 
 
 reg_file REG_FILE(
@@ -43,7 +42,7 @@ reg_file REG_FILE(
     .WE3    (RegWrite),
     .WD3    (ALUout),
     .RD1    (ALUop1),
-    .RD2    (ALUop2),
+    .RD2    (regop2),
     .a0     (a0)
 ); 
 

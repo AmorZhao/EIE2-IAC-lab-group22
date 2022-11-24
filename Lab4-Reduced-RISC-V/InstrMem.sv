@@ -11,13 +11,13 @@ module InstrMem #(
     output  logic [DATA_WIDTH-1:0]    RD
 ); 
 
-logic [DATA_WIDTH-1:0] rom_array [2**ADDRESS_WIDTH-1:0]; 
+logic [7:0] rom_array [2**ADDRESS_WIDTH-1:0]; 
 
 initial begin
     $display("Loading rom."); 
-    $readmemh("InstructionROM.mem", rom_array); 
+    $readmemh("Instruction.mem", rom_array); 
 end; 
 
-assign RD = rom_array [A]; 
+assign RD = {rom_array [A], rom_array [A+1], rom_array [A+2], rom_array [A+3]} ; 
 
 endmodule
