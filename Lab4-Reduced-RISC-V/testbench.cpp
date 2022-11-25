@@ -25,7 +25,7 @@ int main(int argc, char **argv, char **env) {
 
     //initialize simulation inputs
     top->clk = 1;
-    top->rst = 1;
+    top->rst = 0;
 
     //run simulation for many clock cycles
     for (i=0; i<30; i++) {
@@ -48,7 +48,6 @@ int main(int argc, char **argv, char **env) {
         vbdCycle(i+1);
         //---- end of Vbuddy output section
 
-        top->rst = (i <2);
         if (Verilated::gotFinish())  exit(0);
     }
 
