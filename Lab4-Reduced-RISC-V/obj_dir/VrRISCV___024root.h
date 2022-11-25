@@ -35,7 +35,7 @@ class VrRISCV___024root final : public VerilatedModule {
     IData/*31:0*/ rRISCV__DOT__RedBlock__DOT__ALUop2;
     IData/*31:0*/ __Vchglast__TOP__rRISCV__DOT__RedBlock__DOT__ALUop2;
     VlUnpacked<CData/*7:0*/, 1001> rRISCV__DOT__InstrMem__DOT__rom_array;
-    VlUnpacked<IData/*31:0*/, 2> rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array;
+    VlUnpacked<IData/*31:0*/, 32> rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array;
     VlUnpacked<CData/*0:0*/, 4> __Vm_traceActivity;
 
     // INTERNAL VARIABLES

@@ -29,7 +29,7 @@ VL_ATTR_COLD void VrRISCV___024root___settle__TOP__0(VrRISCV___024root* vlSelf) 
     VL_DEBUG_IF(VL_DBG_MSGF("+    VrRISCV___024root___settle__TOP__0\n"); );
     // Body
     vlSelf->a0 = vlSelf->rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array
-        [1U];
+        [6U];
     vlSelf->rRISCV__DOT__EQ = (vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 
                                == vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2);
     vlSelf->rRISCV__DOT__instr = ((((0x3e8U >= (0x3ffU 
@@ -163,7 +163,7 @@ VL_ATTR_COLD void VrRISCV___024root___ctor_var_reset(VrRISCV___024root* vlSelf) 
     vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 = VL_RAND_RESET_I(32);
     vlSelf->rRISCV__DOT__RedBlock__DOT__regop2 = VL_RAND_RESET_I(32);
     vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2 = VL_RAND_RESET_I(32);
-    for (int __Vi0=0; __Vi0<2; ++__Vi0) {
+    for (int __Vi0=0; __Vi0<32; ++__Vi0) {
         vlSelf->rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array[__Vi0] = VL_RAND_RESET_I(32);
     }
     vlSelf->rRISCV__DOT__SignExtend__DOT__Imm = VL_RAND_RESET_I(12);

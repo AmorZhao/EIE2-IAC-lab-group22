@@ -48,7 +48,7 @@ int main(int argc, char **argv, char **env) {
         vbdCycle(i+1);
         //---- end of Vbuddy output section
 
-        top->rst = (i <2) | (i == 17);
+        top->rst = (i <2);
         if (Verilated::gotFinish())  exit(0);
     }
 

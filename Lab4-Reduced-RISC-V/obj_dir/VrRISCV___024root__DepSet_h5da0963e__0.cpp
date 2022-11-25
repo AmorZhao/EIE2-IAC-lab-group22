@@ -11,32 +11,30 @@ VL_INLINE_OPT void VrRISCV___024root___sequent__TOP__0(VrRISCV___024root* vlSelf
     VrRISCV__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VrRISCV___024root___sequent__TOP__0\n"); );
     // Init
-    CData/*0:0*/ __Vdlyvdim0__rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array__v0;
+    CData/*4:0*/ __Vdlyvdim0__rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array__v0;
     IData/*31:0*/ __Vdlyvval__rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array__v0;
     CData/*0:0*/ __Vdlyvset__rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array__v0;
     // Body
     __Vdlyvset__rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array__v0 = 0U;
     vlSelf->rRISCV__DOT__RedBlock__DOT__regop2 = vlSelf->rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array
-        [(1U & ((IData)(1U) + (0x1fU & (vlSelf->rRISCV__DOT__instr 
-                                        >> 0x14U))))];
+        [(0x1fU & (vlSelf->rRISCV__DOT__instr >> 0x14U))];
     if (vlSelf->rRISCV__DOT__RegWrite) {
         __Vdlyvval__rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array__v0 
             = (vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 
                + vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2);
         __Vdlyvset__rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array__v0 = 1U;
         __Vdlyvdim0__rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array__v0 
-            = (1U & ((IData)(1U) + (0x1fU & (vlSelf->rRISCV__DOT__instr 
-                                             >> 7U))));
+            = (0x1fU & (vlSelf->rRISCV__DOT__instr 
+                        >> 7U));
     }
     vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 = vlSelf->rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array
-        [(1U & ((IData)(1U) + (0x1fU & (vlSelf->rRISCV__DOT__instr 
-                                        >> 0xfU))))];
+        [(0x1fU & (vlSelf->rRISCV__DOT__instr >> 0xfU))];
     if (__Vdlyvset__rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array__v0) {
         vlSelf->rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array[__Vdlyvdim0__rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array__v0] 
             = __Vdlyvval__rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array__v0;
     }
     vlSelf->a0 = vlSelf->rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array
-        [1U];
+        [6U];
 }
 
 VL_INLINE_OPT void VrRISCV___024root___sequent__TOP__1(VrRISCV___024root* vlSelf) {
