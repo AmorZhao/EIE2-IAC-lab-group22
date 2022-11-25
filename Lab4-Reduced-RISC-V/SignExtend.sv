@@ -12,26 +12,17 @@ module SignExtend #(
     output logic  [DATA_WIDTH-1:0]   ImmOp
 ); 
 
-    logic  [IMM_WIDTH-1:0]  Imm; 
+    logic  [IMM_WIDTH-1:0]  Imm1; 
+    logic  [IMM_WIDTH-1:0]  Imm2;
+    logic  [IMM_WIDTH-1:0]  Imm;  
 
     // reconstruct Imm
-    if (ImmSrc)
-    {
-        assign Imm = {instr[31], instr[7], instr[30:25], instr[11:8]}; 
-    }
-    else 
-    {
-        assign Imm = instr[31:20]; 
-    }
+    assign Imm1 = {instr[31], instr[7], instr[30:25], instr[11:8]}; 
+    assign Imm2 = instr[31:20]; 
+    assign Imm = ImmSrc ? Imm1 : Imm2; 
+    
 
     // sign extend
-    if (instr[IMM_WIDTH-1])
-    {
-        assign ImmOp = { (DATA_WIDTH-IMM_WIDTH){1'b1}, instr[IMM_WIDTH-1:0]}; 
-    }
-    else 
-    {
-        assign ImmOp = { (DATA_WIDTH-IMM_WIDTH){1'b0}, instr[IMM_WIDTH-1:0]};
-    }
+    assign ImmOp = { {20{Imm[IMM_WIDTH-1]}}, Imm[IMM_WIDTH-1:0]}; 
 
 endmodule
