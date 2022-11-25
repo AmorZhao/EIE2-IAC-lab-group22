@@ -28,6 +28,7 @@ VM_CLASSES_FAST += \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
+	VrRISCV__ConstPool_0 \
 	VrRISCV___024root__Slow \
 	VrRISCV___024root__DepSet_h5da0963e__0__Slow \
 

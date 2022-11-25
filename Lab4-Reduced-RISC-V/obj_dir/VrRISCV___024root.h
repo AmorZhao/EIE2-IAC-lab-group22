@@ -18,13 +18,10 @@ class VrRISCV___024root final : public VerilatedModule {
     CData/*0:0*/ rRISCV__DOT__ALUctrl;
     CData/*0:0*/ rRISCV__DOT__ALUsrc;
     CData/*0:0*/ rRISCV__DOT__RegWrite;
-    CData/*0:0*/ rRISCV__DOT__EQ;
     CData/*0:0*/ rRISCV__DOT__ImmSrc;
     CData/*0:0*/ rRISCV__DOT__PCsrc;
     CData/*0:0*/ rRISCV__DOT__Control__DOT__addi;
     CData/*0:0*/ rRISCV__DOT__Control__DOT__bne;
-    CData/*0:0*/ rRISCV__DOT__ControlUnit__DOT__addi;
-    CData/*0:0*/ rRISCV__DOT__ControlUnit__DOT__bne;
     CData/*0:0*/ __Vclklast__TOP__clk;
     CData/*0:0*/ __Vclklast__TOP__rst;
     SData/*11:0*/ rRISCV__DOT__SignExtend__DOT__Imm;

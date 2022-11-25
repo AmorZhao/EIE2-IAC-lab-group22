@@ -8,7 +8,9 @@ module SignExtend #(
                 IMM_WIDTH = 12
 )(
     input  logic                     ImmSrc, 
-    input  logic  [DATA_WIDTH-1:0]   instr, 
+    /* verilator lint_off UNUSED */
+    input  logic  [31:0]             instr, 
+    /* verilator lint_on UNUSED */
     output logic  [DATA_WIDTH-1:0]   ImmOp
 ); 
 

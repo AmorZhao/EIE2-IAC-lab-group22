@@ -57,18 +57,8 @@ red_block RedBlock(
 
 SignExtend SignExtend (
     .ImmSrc     (ImmSrc),
-    .instr      (instr),
+    .instr      (instr [31:0]),
     .ImmOp      (ImmOp)
-); 
-
-ControlUnit ControlUnit (
-    .instr      (instr),
-    .EQ         (EQ),
-    .RegWrite   (RegWrite),
-    .ALUctrl    (ALUctrl),
-    .ALUsrc     (ALUsrc),
-    .ImmSrc     (ImmSrc),
-    .PCsrc      (PCsrc)
 );
 
 pcreg PC_Reg (

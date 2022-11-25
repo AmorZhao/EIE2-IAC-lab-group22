@@ -1,7 +1,7 @@
 #include "VrRISCV.h"
 #include "verilated.h"
 #include "verilated_vcd_c.h"
-#include "vbuddy.cpp"
+//#include "vbuddy.cpp"
 
 int main(int argc, char **argv, char **env) {
     int i;
@@ -17,18 +17,18 @@ int main(int argc, char **argv, char **env) {
     tfp->open ("rRISCV.vcd");
 
     //init Vbuddy
-    if (vbdOpen()!=1) return(-1);
-    vbdHeader("Lab 4: rRISCV");
+    // if (vbdOpen()!=1) return(-1);
+    // vbdHeader("Lab 4: rRISCV");
 
     
-        vbdSetMode(1);
+    //     vbdSetMode(1);
 
     //initialize simulation inputs
     top->clk = 1;
     top->rst = 0;
 
     //run simulation for many clock cycles
-    for (i=0; i<30; i++) {
+    for (i=0; i<300; i++) {
 
         //dump variables into VCD file and toggle clock
         for (clk=0; clk<2; clk++) {
@@ -40,7 +40,7 @@ int main(int argc, char **argv, char **env) {
         if (Verilated::gotFinish())  exit(0);
     }
 
-    vbdClose(); //++++
+    //vbdClose(); ++++
     tfp->close();
     exit(0);
 }
