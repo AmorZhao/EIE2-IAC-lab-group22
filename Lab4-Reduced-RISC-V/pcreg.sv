@@ -1,4 +1,4 @@
-module pc #(
+module pcreg #(
     parameter WIDTH = 32
 )(
     // interface signals
@@ -12,7 +12,7 @@ module pc #(
 always_ff @ (posedge clk, posedge rst)
     if (rst) pc <= {WIDTH{1'b0}};
     else case(pcsrc)
-        1'b0: pc <= pc + {{WIDTH-3{1'b0}}, en, {2{1'b0}}};
+        1'b0: pc <= pc + {{WIDTH-3{1'b0}}, 1'b1, {2{1'b0}}};
         1'b1: pc <= pc + immop;
         default: pc <= pc;
     endcase
