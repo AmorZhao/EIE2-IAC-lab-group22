@@ -14,9 +14,10 @@ logic   [D_WIDTH-1:0]   instr,          //InstrMem to control unit, reg file and
 logic                   ALUctrl,        //Control Unit to red block
 logic                   ALUsrc,         //Control Unit to red block
 logic   [D_WIDTH-1:0]   ImmOp,          //sign extend to red block and pcreg
-logic                   RegWrite        //Control unit to reg file
+logic                   RegWrite,        //Control unit to reg file
 logic                   EQ,             //alu to control unit
 logic                   ImmSrc,         //Control unit to Sign extend
+logic                   PCsrc           //Control unit to PC_reg mux
 
 
 
@@ -43,6 +44,24 @@ SignExtend SignExtend (
     .ImmSrc     (Immsrc),
     .instr      (instr),
     .ImmOp      (ImmOp)
+)
+
+ControlUnit ControlUnit (
+    .instr      (instr),
+    .EQ         (EQ),
+    .RegWrite   (RegWrite),
+    .ALUctrl    (ALUctrl),
+    .ALUsrc     (ALUsrc),
+    .ImmSrc     (ImmSrc),
+    .PCsrc      (PCsrc)
+)
+
+pcreg PC_Reg (
+    .clk        (clk),
+    .rst        (rst),
+    .immop      (ImmOp),
+    .pcsrc      (PCsrc),
+    .pc         (PC)
 )
 
 
