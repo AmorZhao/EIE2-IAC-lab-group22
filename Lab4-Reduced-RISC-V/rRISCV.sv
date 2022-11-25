@@ -69,7 +69,7 @@ ControlUnit ControlUnit (
     .ALUsrc     (ALUsrc),
     .ImmSrc     (ImmSrc),
     .PCsrc      (PCsrc)
-)
+);
 
 pcreg PC_Reg (
     .clk        (clk),
@@ -77,7 +77,7 @@ pcreg PC_Reg (
     .immop      (ImmOp),
     .pcsrc      (PCsrc),
     .pc         (PC)
-)
+);
 
 
 endmodule
