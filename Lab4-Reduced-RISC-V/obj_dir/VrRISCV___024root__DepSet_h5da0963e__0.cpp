@@ -89,8 +89,8 @@ VL_INLINE_OPT void VrRISCV___024root___sequent__TOP__1(VrRISCV___024root* vlSelf
 
 extern const VlUnpacked<CData/*4:0*/, 8> VrRISCV__ConstPool__TABLE_h76b30a79_0;
 extern const VlUnpacked<CData/*0:0*/, 8> VrRISCV__ConstPool__TABLE_h73dc3151_0;
-extern const VlUnpacked<CData/*0:0*/, 8> VrRISCV__ConstPool__TABLE_h743c0f0f_0;
-extern const VlUnpacked<CData/*0:0*/, 8> VrRISCV__ConstPool__TABLE_h0933c3c1_0;
+extern const VlUnpacked<CData/*2:0*/, 8> VrRISCV__ConstPool__TABLE_h44b82762_0;
+extern const VlUnpacked<CData/*1:0*/, 8> VrRISCV__ConstPool__TABLE_h7c568549_0;
 extern const VlUnpacked<CData/*0:0*/, 8> VrRISCV__ConstPool__TABLE_h08dc11ff_0;
 
 VL_INLINE_OPT void VrRISCV___024root___combo__TOP__0(VrRISCV___024root* vlSelf) {
@@ -111,7 +111,8 @@ VL_INLINE_OPT void VrRISCV___024root___combo__TOP__0(VrRISCV___024root* vlSelf) 
     }
     if ((2U & VrRISCV__ConstPool__TABLE_h76b30a79_0
          [__Vtableidx1])) {
-        vlSelf->rRISCV__DOT__ALUctrl = VrRISCV__ConstPool__TABLE_h743c0f0f_0
+        vlSelf->rRISCV__DOT____Vcellout__Control__ALUctrl 
+            = VrRISCV__ConstPool__TABLE_h44b82762_0
             [__Vtableidx1];
     }
     if ((4U & VrRISCV__ConstPool__TABLE_h76b30a79_0
@@ -121,7 +122,8 @@ VL_INLINE_OPT void VrRISCV___024root___combo__TOP__0(VrRISCV___024root* vlSelf) 
     }
     if ((8U & VrRISCV__ConstPool__TABLE_h76b30a79_0
          [__Vtableidx1])) {
-        vlSelf->rRISCV__DOT__ImmSrc = VrRISCV__ConstPool__TABLE_h0933c3c1_0
+        vlSelf->rRISCV__DOT____Vcellout__Control__ImmSrc 
+            = VrRISCV__ConstPool__TABLE_h7c568549_0
             [__Vtableidx1];
     }
     if ((0x10U & VrRISCV__ConstPool__TABLE_h76b30a79_0
@@ -130,7 +132,8 @@ VL_INLINE_OPT void VrRISCV___024root___combo__TOP__0(VrRISCV___024root* vlSelf) 
             [__Vtableidx1];
     }
     vlSelf->rRISCV__DOT__SignExtend__DOT__Imm = (0xfffU 
-                                                 & ((IData)(vlSelf->rRISCV__DOT__ImmSrc)
+                                                 & ((1U 
+                                                     & (IData)(vlSelf->rRISCV__DOT____Vcellout__Control__ImmSrc))
                                                      ? 
                                                     ((0x800U 
                                                       & (vlSelf->rRISCV__DOT__instr 

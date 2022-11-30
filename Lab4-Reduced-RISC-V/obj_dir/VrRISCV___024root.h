@@ -16,10 +16,12 @@ class VrRISCV___024root final : public VerilatedModule {
     VL_IN8(clk,0,0);
     VL_IN8(rst,0,0);
     CData/*0:0*/ rRISCV__DOT__PCsrc;
-    CData/*0:0*/ rRISCV__DOT__ALUctrl;
     CData/*0:0*/ rRISCV__DOT__ALUsrc;
     CData/*0:0*/ rRISCV__DOT__RegWrite;
-    CData/*0:0*/ rRISCV__DOT__ImmSrc;
+    CData/*1:0*/ rRISCV__DOT____Vcellout__Control__ImmSrc;
+    CData/*2:0*/ rRISCV__DOT____Vcellout__Control__ALUctrl;
+    CData/*0:0*/ rRISCV__DOT__Control__DOT__ResultSrc;
+    CData/*0:0*/ rRISCV__DOT__Control__DOT__MemWrite;
     CData/*0:0*/ rRISCV__DOT__Control__DOT__addi;
     CData/*0:0*/ rRISCV__DOT__Control__DOT__bne;
     CData/*0:0*/ __Vclklast__TOP__clk;

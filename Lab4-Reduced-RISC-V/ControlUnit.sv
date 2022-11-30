@@ -5,7 +5,7 @@
 
 module ControlUnit (
     input  logic [6:0]             instr, 
-    input  logic                   Zero, 
+    input  logic                   EQ, 
     output logic                   PCsrc, 
     output logic                   ResultSrc, 
     output logic                   MemWrite, 

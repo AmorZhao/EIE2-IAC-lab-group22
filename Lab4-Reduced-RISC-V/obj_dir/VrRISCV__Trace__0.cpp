@@ -83,23 +83,25 @@ void VrRISCV___024root__trace_chg_sub_0(VrRISCV___024root* vlSelf, VerilatedVcd:
     }
     if (VL_UNLIKELY(vlSelf->__Vm_traceActivity[3U])) {
         bufp->chgBit(oldp+43,(vlSelf->rRISCV__DOT__PCsrc));
-        bufp->chgBit(oldp+44,(vlSelf->rRISCV__DOT__ALUctrl));
+        bufp->chgBit(oldp+44,((1U & (IData)(vlSelf->rRISCV__DOT____Vcellout__Control__ALUctrl))));
         bufp->chgBit(oldp+45,(vlSelf->rRISCV__DOT__ALUsrc));
         bufp->chgIData(oldp+46,(vlSelf->rRISCV__DOT__ImmOp),32);
         bufp->chgBit(oldp+47,(vlSelf->rRISCV__DOT__RegWrite));
-        bufp->chgBit(oldp+48,(vlSelf->rRISCV__DOT__ImmSrc));
-        bufp->chgIData(oldp+49,(vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2),32);
-        bufp->chgSData(oldp+50,(vlSelf->rRISCV__DOT__SignExtend__DOT__Imm),12);
+        bufp->chgBit(oldp+48,((1U & (IData)(vlSelf->rRISCV__DOT____Vcellout__Control__ImmSrc))));
+        bufp->chgCData(oldp+49,(vlSelf->rRISCV__DOT____Vcellout__Control__ALUctrl),3);
+        bufp->chgCData(oldp+50,(vlSelf->rRISCV__DOT____Vcellout__Control__ImmSrc),2);
+        bufp->chgIData(oldp+51,(vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2),32);
+        bufp->chgSData(oldp+52,(vlSelf->rRISCV__DOT__SignExtend__DOT__Imm),12);
     }
-    bufp->chgBit(oldp+51,(vlSelf->clk));
-    bufp->chgBit(oldp+52,(vlSelf->rst));
-    bufp->chgIData(oldp+53,(vlSelf->a0),32);
-    bufp->chgBit(oldp+54,((vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 
+    bufp->chgBit(oldp+53,(vlSelf->clk));
+    bufp->chgBit(oldp+54,(vlSelf->rst));
+    bufp->chgIData(oldp+55,(vlSelf->a0),32);
+    bufp->chgBit(oldp+56,((vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 
                            == vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2)));
-    bufp->chgIData(oldp+55,(vlSelf->rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array
+    bufp->chgIData(oldp+57,(vlSelf->rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array
                             [(0x1fU & (vlSelf->rRISCV__DOT__instr 
                                        >> 0x14U))]),32);
-    bufp->chgIData(oldp+56,((vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 
+    bufp->chgIData(oldp+58,((vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 
                              + vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2)),32);
 }
 
