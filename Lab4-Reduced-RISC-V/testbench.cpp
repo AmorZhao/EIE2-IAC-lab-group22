@@ -25,10 +25,10 @@ int main(int argc, char **argv, char **env) {
 
     //initialize simulation inputs
     top->clk = 1;
-    top->rst = 1;
+    top->rst = 0;
 
     //run simulation for many clock cycles
-    for (i=0; i<30; i++) {
+    for (i=0; i<50; i++) {
 
         //dump variables into VCD file and toggle clock
         for (clk=0; clk<2; clk++) {
@@ -37,10 +37,6 @@ int main(int argc, char **argv, char **env) {
             top->eval ();
         }
 
-        vbdHex(8, (top->a0 >> 32) & 0XF);
-        vbdHex(7, (top->a0 >> 28) & 0XF);
-        vbdHex(6, (top->a0 >> 24) & 0XF);
-        vbdHex(5, (top->a0 >> 20) & 0XF);
         vbdHex(4, (top->a0 >> 16) & 0XF);
         vbdHex(3, (top->a0 >> 8) & 0XF);
         vbdHex(2, (top->a0 >> 4) & 0XF);
@@ -48,7 +44,6 @@ int main(int argc, char **argv, char **env) {
         vbdCycle(i+1);
         //---- end of Vbuddy output section
 
-        top->rst = (i <2);
         if (Verilated::gotFinish())  exit(0);
     }
 

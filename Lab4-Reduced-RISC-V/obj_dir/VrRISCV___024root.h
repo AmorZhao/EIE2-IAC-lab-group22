@@ -19,7 +19,6 @@ class VrRISCV___024root final : public VerilatedModule {
     CData/*0:0*/ rRISCV__DOT__ALUctrl;
     CData/*0:0*/ rRISCV__DOT__ALUsrc;
     CData/*0:0*/ rRISCV__DOT__RegWrite;
-    CData/*0:0*/ rRISCV__DOT__EQ;
     CData/*0:0*/ rRISCV__DOT__ImmSrc;
     CData/*0:0*/ rRISCV__DOT__Control__DOT__addi;
     CData/*0:0*/ rRISCV__DOT__Control__DOT__bne;
@@ -31,7 +30,6 @@ class VrRISCV___024root final : public VerilatedModule {
     IData/*31:0*/ rRISCV__DOT__instr;
     IData/*31:0*/ rRISCV__DOT__ImmOp;
     IData/*31:0*/ rRISCV__DOT__RedBlock__DOT__ALUop1;
-    IData/*31:0*/ rRISCV__DOT__RedBlock__DOT__regop2;
     IData/*31:0*/ rRISCV__DOT__RedBlock__DOT__ALUop2;
     IData/*31:0*/ __Vchglast__TOP__rRISCV__DOT__RedBlock__DOT__ALUop2;
     VlUnpacked<CData/*7:0*/, 1001> rRISCV__DOT__InstrMem__DOT__rom_array;

@@ -3,6 +3,7 @@
 #include "VrRISCV.cpp"
 #include "VrRISCV___024root__DepSet_h5da0963e__0.cpp"
 #include "VrRISCV__Trace__0.cpp"
+#include "VrRISCV__ConstPool_0.cpp"
 #include "VrRISCV___024root__Slow.cpp"
 #include "VrRISCV___024root__DepSet_h5da0963e__0__Slow.cpp"
 #include "VrRISCV__Syms.cpp"
