@@ -34,7 +34,7 @@ VL_INLINE_OPT void VrRISCV___024root___sequent__TOP__0(VrRISCV___024root* vlSelf
             = __Vdlyvval__rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array__v0;
     }
     vlSelf->a0 = vlSelf->rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array
-        [6U];
+        [0xaU];
 }
 
 VL_INLINE_OPT void VrRISCV___024root___sequent__TOP__1(VrRISCV___024root* vlSelf) {

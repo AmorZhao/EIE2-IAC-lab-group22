@@ -29,7 +29,7 @@ VL_ATTR_COLD void VrRISCV___024root___settle__TOP__0(VrRISCV___024root* vlSelf) 
     VL_DEBUG_IF(VL_DBG_MSGF("+    VrRISCV___024root___settle__TOP__0\n"); );
     // Body
     vlSelf->a0 = vlSelf->rRISCV__DOT__RedBlock__DOT__REG_FILE__DOT__ram_array
-        [6U];
+        [0xaU];
     vlSelf->rRISCV__DOT__EQ = (vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop1 
                                == vlSelf->rRISCV__DOT__RedBlock__DOT__ALUop2);
     vlSelf->rRISCV__DOT__instr = ((((0x3e8U >= (0x3ffU 

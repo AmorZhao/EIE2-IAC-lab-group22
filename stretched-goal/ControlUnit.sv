@@ -5,14 +5,12 @@
 
 module ControlUnit (
     input  logic [6:0]             instr, 
-    input  logic                   Zero, 
-    output logic                   PCsrc, 
-    output logic                   ResultSrc, 
-    output logic                   MemWrite, 
-    output logic [2:0]             ALUctrl, 
+    input  logic                   EQ, 
+    output logic                   RegWrite, 
+    output logic                   ALUctrl, 
     output logic                   ALUsrc, 
-    output logic [1:0]             ImmSrc, 
-    output logic                   RegWrite
+    output logic                   ImmSrc, 
+    output logic                   PCsrc
 ); 
 
     logic   addi; 

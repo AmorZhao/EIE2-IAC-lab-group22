@@ -28,7 +28,7 @@ pcreg PCregister(
 
 ControlUnit Control(
     .instr(instr[6:0]), 
-    .Zero(EQ), 
+    .EQ(EQ), 
     .RegWrite(RegWrite), 
     .ALUctrl(ALUctrl), 
     .ALUsrc(ALUsrc), 
