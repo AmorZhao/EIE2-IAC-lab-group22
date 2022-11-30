@@ -13,14 +13,13 @@ module reg_file #(
 
 logic [DATA_WIDTH-1:0] ram_array [2**ADDRESS_WIDTH-1:0];
 
-always_ff @(posedge clk) begin
-    if (WE3 == 1'b1)
-        ram_array[AD3] <= WD3;
-end
+assign RD1 = ram_array[AD1];
+assign RD2 = ram_array[AD2];
 
 always_ff @(posedge clk) begin
-    RD1 <= ram_array[AD1];
-    RD2 <= ram_array[AD2];
+    if (WE3 == 1'b1) begin
+        ram_array[AD3] <= WD3;
+    end
 end
     
 assign a0 = ram_array[5'd10];
