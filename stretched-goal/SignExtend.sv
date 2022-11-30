@@ -13,13 +13,13 @@ module SignExtend #(
 ); 
 
     logic  [IMM_WIDTH-1:0]  Imm1; 
-    logic  [IMM_WIDTH-1:0]  Imm0;
+    logic  [IMM_WIDTH-1:0]  Imm2;
     logic  [IMM_WIDTH-1:0]  Imm;  
 
     // reconstruct Imm
-    assign Imm1 = {instr[31], instr[7], instr[30:25], instr[11:8]}; // pc
-    assign Imm0 = instr[31:20]; // alu
-    assign Imm = ImmSrc ? Imm1 : Imm0; 
+    assign Imm1 = {instr[31], instr[7], instr[30:25], instr[11:8]}; 
+    assign Imm2 = instr[31:20]; 
+    assign Imm = ImmSrc ? Imm1 : Imm2; 
     
 
     // sign extend
