@@ -18,6 +18,8 @@ module ControlUnit (
 
     // check opcode
     always_comb begin
+        addi = 0;
+        bne =  0;
         if ( instr[6:0] == 7'b0010011 ) begin //addi
             addi = 1; 
             bne = 0; 
@@ -30,6 +32,12 @@ module ControlUnit (
   
     // set output signals 
     always_comb  begin
+        RegWrite = 1'b1; 
+        ALUctrl = 1'b1; 
+        ALUsrc = 1'b1; 
+        ImmSrc = 1'b0; 
+        PCsrc = 1'b0; 
+
         if (addi) begin
             RegWrite = 1'b1; 
             ALUctrl = 1'b1; 
@@ -37,7 +45,7 @@ module ControlUnit (
             ImmSrc = 1'b0; 
             PCsrc = 1'b0; 
         end
-        else if (bne && EQ!=1'b1) begin
+        else if (bne) begin
             RegWrite = 1'b0; 
             ALUctrl = 1'b0; 
             ALUsrc = 1'b0; 

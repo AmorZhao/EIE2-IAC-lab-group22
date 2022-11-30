@@ -8,15 +8,15 @@ module rRISCV #(
 
 //connecting wires
 
-logic   [D_WIDTH-1:0]   PC;              //PCReg to Instr Mem
-logic                   PCsrc; 
-logic   [D_WIDTH-1:0]   instr;           //InstrMem to control unit, reg file and sign extend
+logic   [D_WIDTH-1:0]   PC;             //PCReg to Instr Mem
+logic   [D_WIDTH-1:0]   instr;          //InstrMem to control unit, reg file and sign extend
 logic                   ALUctrl;        //Control Unit to red block
 logic                   ALUsrc;         //Control Unit to red block
 logic   [D_WIDTH-1:0]   ImmOp;          //sign extend to red block and pcreg
-logic                   RegWrite;        //Control unit to reg file
+logic                   RegWrite;       //Control unit to reg file
 logic                   EQ;             //alu to control unit
 logic                   ImmSrc;         //Control unit to Sign extend
+logic                   PCsrc;          //Control unit to PC_reg Mux
 
 pcreg PCregister(
     .clk(clk),    // clock
@@ -57,10 +57,17 @@ red_block RedBlock(
 
 SignExtend SignExtend (
     .ImmSrc     (ImmSrc),
-    .instr      (instr),
+    .instr      (instr [31:0]),
     .ImmOp      (ImmOp)
-); 
+);
 
+pcreg PC_Reg (
+    .clk        (clk),
+    .rst        (rst),
+    .immop      (ImmOp),
+    .pcsrc      (PCsrc),
+    .pc         (PC)
+);
 
 
 endmodule
