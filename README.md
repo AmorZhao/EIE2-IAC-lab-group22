@@ -11,7 +11,9 @@ https://github.com/EIE2-IAC-Labs/Lab4-Reduced-RISC-V
 
 ---
 
-![image](https://user-images.githubusercontent.com/87839533/203973935-0802a4c2-0315-46ae-9c5c-e89835aafddb.png)
+![image](https://user-images.githubusercontent.com/87839533/204900616-d29eafb6-2809-418b-90e1-69c21b890f58.png)
+
+above is an image showing the counter waveform with a smaller limit value (0x0A)
 
 ---
 
