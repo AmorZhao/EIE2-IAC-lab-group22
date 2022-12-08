@@ -1,0 +1,5 @@
+# ignore obj_dir and files inside it
+obj_dir/
+
+# ignore all files ending with .vcd
+*.vcd
