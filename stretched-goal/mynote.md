@@ -69,7 +69,7 @@
 
 #### With the above idea, the following schema have been implemented: 
 
-
+![374263040323319029](https://user-images.githubusercontent.com/87839533/206577722-5364691f-0d6a-4b2b-b74a-627e73091c27.jpg)
 
 #### Tested lw and sw with following simple instructions: 
 ```
@@ -78,3 +78,7 @@
     lw   x2 , 0x05 (x0)   // 00502103
 ```
 #### It could be seen in the waveform that the instructions are working correctly: 
+
+<img width="515" alt="image" src="https://user-images.githubusercontent.com/87839533/206577756-c9479411-3ad7-4d1e-8eca-d1276d0b5a6d.png">
+
+---
